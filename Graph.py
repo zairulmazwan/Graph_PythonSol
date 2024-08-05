@@ -59,7 +59,7 @@ class Graph:
         return res
 
 
-    def traverse_DFS_1(self, value, visited):
+    def traverse_DFS_2(self, value, visited):
 
         if self.contain_vertex(value):
             v = self.get_vertex(value)
@@ -69,14 +69,30 @@ class Graph:
             for i in v.edges:
                 if i not in visited:
                     visited.append(i)
-                    self.traverse_DFS_1(i.value, visited)
+                    self.traverse_DFS_2(i.value, visited)
         else:
             print("There is not vertex in the graph")
         return visited
 
 
-    def traverse_DFS_2(self):
-        pass
+    def traverse_DFS_1(self, value):
+        if self.contain_vertex(value):
+            first_node = self.get_vertex(value)
+            nodes = []
+            nodes.append(first_node)
+
+            visited = []
+            while nodes:
+                n = nodes.pop()
+
+                if not (n in visited):
+                    print(n.value, end=" ")
+                    visited.append(n)
+                    e = self.get_edges(n)
+                    for i in e:
+                        nodes.append(i)
+        else:
+            print("There is no such node in the graph")
 
     def traverse_BFS(self, value):
 
@@ -97,7 +113,6 @@ class Graph:
                         queue.append(e)
         else:
             print("There is no vertex in the graph")
-
 
 
     def create_graph(self):
@@ -138,8 +153,6 @@ class Graph:
 def print_vertices(graph):
     for i in graph:
         print(i.value, end=" ")
-
-
 
 
 # ©Zairul Mazwan©
