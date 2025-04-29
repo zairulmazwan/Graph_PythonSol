@@ -71,7 +71,7 @@ class Graph:
                     visited.append(i)
                     self.traverse_DFS_2(i.value, visited)
         else:
-            print("There is not vertex in the graph")
+            print("There is no vertex in the graph")
         return visited
 
 
