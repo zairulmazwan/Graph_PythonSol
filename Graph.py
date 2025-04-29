@@ -30,7 +30,7 @@ class Graph:
                 res = i
         return res
 
-
+    # This function is to be used in print_edges
     def get_edges(self, vertex):
 
         index = self.vertices.index(vertex)
@@ -39,8 +39,8 @@ class Graph:
 
     def print_edges(self, vertex):
 
-        edges = self.get_edges(vertex)
-        for i in edges:
+        edges = self.get_edges(vertex) # We first need to get the edges by calling the function in line 34
+        for i in edges: # We read the elements (vertex) in the edges variable
             print(i.value,end=" ")
 
 
@@ -119,34 +119,34 @@ class Graph:
 
         # Creating vertices using a for loop: 10,20,...60
         for i in range(1,7):
-            value = 10*i
-            v = Vertex(value)
-            self.add_vertex(v)
+            value = 10*i # i: 1, 2, 3...6
+            v = Vertex(value) # Creating a vertex: calling the Vertex class. We set the value first, by default the adges list is empty
+            self.add_vertex(v) # Adding the vertex to the graph property i.e., vertices
 
         # [10,20,30,40,50,60]
 
-        # Edges for 10: 20 and 50
-        self.set_edge(self.vertices[0],self.vertices[1])
-        self.set_edge(self.vertices[0], self.vertices[4])
+        # Edges for 10: 20 and 50 (Refer the function at line 17)
+        self.set_edge(self.vertices[0],self.vertices[1]) # Vertex 10 in the list is at index 0, Vertex 20 in the list is at index 1
+        self.set_edge(self.vertices[0], self.vertices[4]) # Vertex 10 in the list is at index 0, Vertex 50 in the list is at index 4
 
-        # Edges for 20: 10, 30 and 60
-        self.set_edge(self.vertices[1], self.vertices[0])
-        self.set_edge(self.vertices[1], self.vertices[2])
-        self.set_edge(self.vertices[1], self.vertices[5])
+        # Edges for 20: 10, 30 and 60 (Refer the function at line 17)
+        self.set_edge(self.vertices[1], self.vertices[0]) # Vertex 20 in the list is at index 1, Vertex 10 in the list is at index 0
+        self.set_edge(self.vertices[1], self.vertices[2]) # Vertex 20 in the list is at index 1, Vertex 30 in the list is at index 2
+        self.set_edge(self.vertices[1], self.vertices[5]) # Vertex 20 in the list is at index 1, Vertex 60 in the list is at index 5
 
-        # Edges for 30: 20, 40 and 50
+        # Edges for 30: 20, 40 and 50 (Refer the function at line 17)
         self.set_edge(self.vertices[2], self.vertices[1])
         self.set_edge(self.vertices[2], self.vertices[3])
         self.set_edge(self.vertices[2], self.vertices[4])
 
-        # Edges for 40: 30
+        # Edges for 40: 30 (Refer the function at line 17)
         self.set_edge(self.vertices[3], self.vertices[2])
 
-        # Edges for 50: 10 and 30
+        # Edges for 50: 10 and 30 (Refer the function at line 17)
         self.set_edge(self.vertices[4], self.vertices[0])
         self.set_edge(self.vertices[4], self.vertices[2])
 
-        # Edges for 60: 20
+        # Edges for 60: 20 (Refer the function at line 17)
         self.set_edge(self.vertices[5], self.vertices[1])
 
 
